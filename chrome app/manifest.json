@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Tieba Image Downloader",
+  "version": "1",
+  "minimum_chrome_version": "50",
+  "icons": {
+    "16": "logo.png",
+    "128": "logo.png"
+  },
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "permissions": [
+    "https://tieba.baidu.com/",
+    "https://imgsa.baidu.com/",
+    "http://imgsrc.baidu.com/"
+  ]
+}
