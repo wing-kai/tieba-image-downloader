@@ -12,6 +12,7 @@
       "local_path": "index.html"
     }
   },
+  "content_security_policy": "connect-src 'unsafe-inline' 'unsafe-eval' 'self' https://tieba.baidu.com;default-src 'unsafe-inline' 'unsafe-eval' 'self' https://tieba.baidu.com http://imgsrc.baidu.com;style-src 'unsafe-inline' 'unsafe-eval' 'self' https://tieba.baidu.com; script-src 'unsafe-eval' 'self' https://tieba.baidu.com; object-src 'unsafe-eval' 'self' https://tieba.baidu.com;img-src http://imgsrc.baidu.com",
   "permissions": [
     "https://tieba.baidu.com/",
     "https://imgsa.baidu.com/",

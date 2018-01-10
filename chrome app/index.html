@@ -3,13 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title>贴吧图片下载小工具</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
-  <input type="text" id="post-url" placeholder="输入帖子地址">
-  <button id="btn-analys">识别</button>
-  <p id="text-result" style="display:none">结果：</p>
-  <button id="btn-download" style="display:none">下载</button>
-  <div id="img-wrap" style="width:0;height:0;position:absolute;visibility:hidden;"></div>
+  <div class="container" id="main" style="padding-top: 80px;">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h1>贴吧图片下载工具</h1>
+        <br>
+        <div class="input-group">
+          <input class="form-control" type="text" id="post-url" placeholder="输入帖子地址" v-model="url" :disabled="anlaysing">
+          <span class="input-group-btn">
+            <button class="btn btn-default" @click="analysURL">&nbsp;&nbsp;&nbsp;识别&nbsp;&nbsp;&nbsp;</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" v-if="showDownloadButton">
+      <div class="col-xs-8 col-xs-offset-2">识别到{{ imgList.length }}张图片。</div>
+    </div>
+    <br>
+    <div class="row" v-if="showDownloadButton">
+      <div class="col-xs-8 col-xs-offset-2">
+        <button class="btn btn-primary btn-lg" v-if="showDownloadButton" @click="downloadImage">下载图片</button>
+      </div>
+    </div>
+    <div style="position:absolute;top:0;left:0;width:0;height:0;visibility:hidden;">
+      <template v-for="(url, i) in imgElementList">
+        <img :src="url" @load="handleImageLoaded($event, i)">
+      </template>
+    </div>
+  </div>
+  <script src="vue.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
